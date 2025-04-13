@@ -8,9 +8,11 @@ let apiUrl = `https://api.shecodes.io/ai/v1/generate?prompt=${prompt}&context=${
 
 function generateRecipe(event) {
   event.preventDefault();
+  recipeElement.innerHTML = `generating a recipe for ${instructionsInput.value}...`;
 }
 
 let recipeElement = document.querySelector("#recipe");
+recipeElement.classList.remove("recipe");
 
 function displayRecipe(response) {
   recipeElement.innerHTML = response.data.answer;
